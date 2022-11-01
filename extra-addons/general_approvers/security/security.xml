@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<record model="ir.module.category" id="three_levels_approvals">
+    <field name="name">Time Off  Approval</field>
+    <field name="description">Approval level for Time Off</field>
+    <field name="sequence">20</field>
+</record>
+
+<record id="first_level_approver" model="res.groups">
+    <field name="name">First Level Approver</field>
+    <field name="category_id" ref="three_levels_approvals"/>
+</record>
+
+<record id="second_level_approver" model="res.groups">
+    <field name="name">Second Level Approver</field>
+    <field name="category_id" ref="three_levels_approvals"/>
+</record>
+
+<record id="third_level_approver" model="res.groups">
+    <field name="name">Third Level Approver</field>
+    <field name="category_id" ref="three_levels_approvals"/>
+</record>
+
+
+    <!-- EXPENSE APPROVERS LEVELS FOR THE USERS -->
+    <record model="ir.module.category" id="expense_level_approvals">
+    <field name="name">Expense Approvals</field>
+    <field name="description">Expense  Approval Levels</field>
+    <field name="sequence">20</field>
+    </record>
+
+    <record id="first_expense_approver" model="res.groups">
+    <field name="name">Expense First Approver</field>
+    <field name="category_id" ref="expense_level_approvals"/>
+    </record>
+
+    <record id="second_expense_approver" model="res.groups">
+    <field name="name">Expense Second Approver</field>
+    <field name="category_id" ref="expense_level_approvals"/>
+    </record>
+
+    <record id="third_expense_approver" model="res.groups">
+    <field name="name">Expense Third Approver</field>
+    <field name="category_id" ref="expense_level_approvals"/>
+    </record>
+</odoo>

@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <template id="oo_vehicle_request_memo">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <div class="row text-center">
+                            <h2 class="w-100 text-center">Vehicle Request Memo</h2>
+                        </div>
+
+                        <div class="row mt-4">
+                            <div class="col-6">
+                                <p>
+                                    <span>Request No.:</span>
+                                    &amp;nbsp;
+                                    <span t-field="o.name" />
+                                </p>
+
+                                <p>
+                                    <span>From:</span>
+                                    &amp;nbsp;
+                                    <span t-field="o.date_from" />
+
+                                </p>
+                                <p>
+                                    <span>To:</span>
+                                    &amp;nbsp;
+                                    <span t-field="o.date_to" />
+                                </p>
+                                <p>
+                                    <span>Request Status:</span>
+                                    &amp;nbsp;
+                                    <span t-out="dict(o._fields['state'].selection).get(o.state)" />
+                                </p>
+                            </div>
+
+                            <div class="col-6">
+                                <p>
+                                    <span>Requested Date:</span>
+                                    &amp;nbsp;
+                                    <span t-field="o.req_date" />
+                                </p>
+                                <p>
+                                    <span>Vehicle:</span>
+                                    &amp;nbsp;
+                                    <span t-field="o.fleet.name" />
+                                </p>
+                                <p>
+                                    <span>Purpose:</span>
+                                    &amp;nbsp;
+                                    <span t-field="o.purpose" />
+                                </p>
+                            </div>
+                        </div>
+
+                        <br />
+                        <t t-call="oo_adc_memo.oo_approvers_template" />
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

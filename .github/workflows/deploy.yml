@@ -1,0 +1,24 @@
+name: Push & Deploy
+on:
+  push:
+    branches: [prod]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy With Latest Code
+        uses: appleboy/ssh-action@master
+        with:
+          host: '18.188.111.48' # IP address of the server you wish to ssh into
+          username: 'ubuntu' # User of the server you want to ssh into
+          password: 'Kenyan@1963/?' # SSH server user password
+          port: '22' # SSH server port
+          script_stop: true # Will stop build incase of any failures
+          script: |
+            cd /home/ubuntu/odoo
+            git pull origin prod
+            docker build -t odoo:15.0 .
+            docker-compose down
+            docker-compose up -d
+            docker system prune -f
