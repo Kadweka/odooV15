@@ -1,7 +1,7 @@
 name: Push & Deploy
 on:
   push:
-    branches: [prod]
+    branches: [main]
 
 jobs:
   deploy:
@@ -17,7 +17,7 @@ jobs:
           script_stop: true # Will stop build incase of any failures
           script: |
             cd /home/ubuntu/odoo
-            git pull origin prod
+            git pull origin main
             docker build -t odoo:15.0 .
             docker-compose down
             docker-compose up -d
