@@ -19,6 +19,9 @@ services:
         restart: always
         ports:
                 - 8069:8069
+                - 8070:8069
+                - 8071:8069
+                - 8072:8069
                 - 8072:8072
         links:
                 - db:db
