@@ -37,16 +37,3 @@ volumes:
         db-data:
 networks:
         alandick:
-#    nginx:
-#         image: nginx:latest
-#         ports:
-#                 - 80:80
-#                 - 443:443
-#         restart: always
-#         depends_on:
-#                 - odoo
-#         volumes:
-#                 - ./nginx/sites-enabled/:/etc/nginx/conf.d:ro
-#                 # - /etc/letsencrypt:/etc/letsencrypt:ro
-#         networks:
-#                 - alandick
