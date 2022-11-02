@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 from dataclasses import field
 import string
-from typing_extensions import Required
 from odoo import models, fields
 
 class BlockLand(models.Model):
