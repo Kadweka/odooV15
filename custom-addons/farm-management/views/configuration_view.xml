@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+     <!--Farm Management Form View-->
+       <record id="crop_management_view_form" model="ir.ui.view">
+        <field name="name">land.block.view.form</field>
+        <field name="model">land.block</field>
+        <field name="arch" type="xml">
+       <form string="Crop">
+           <sheet>
+               <group string="Crop Management">
+                   <group>
+                    <field name="name"/>
+                    <field name="description"/>
+                   </group>
+               </group>
+           </sheet>
+         </form>
+      </field>
+  </record>
+       <!--Farm Management Tree View-->
+<record id="crop_management_view_tree" model="ir.ui.view">
+   <field name="name">farm.tree</field>
+   <field name="model">land.block</field>
+   <field name="arch" type="xml">
+       <tree>
+             <field name="name"/>
+            <field name="description"/>
+       </tree>
+   </field>
+</record>
+       <!--Farm Management Action-->
+<record id="action_crop_management" model="ir.actions.act_window">
+   <field name="name">Crops Management</field>
+   <field name="res_model">land.block</field>
+   <field name="view_mode">tree,form</field>
+   <field name="help" type="html">
+       <p class="o_view_nocontent_smiling_face">
+           Create a new Crop
+       </p>
+   </field>
+</record>
+     <!--Menu Block Management-->
+     <menuitem id="crop_management_menu"
+         name="Crop Management"
+         parent="farm-management.menu_crops_config_form"
+         action="action_crop_management"
+         sequence="1"/>
+</odoo>

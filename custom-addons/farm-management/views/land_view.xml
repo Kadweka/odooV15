@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+     <!--Farm Management Form View-->
+       <record id="farm_management_view_form" model="ir.ui.view">
+        <field name="name">land.view.form</field>
+        <field name="model">piece.land</field>
+        <field name="arch" type="xml">
+       <form string="School">
+           <sheet>
+               <group string="Land Management">
+                   <group>
+                    <field name="name"/>
+                    <field name="size"/>
+                   </group>
+                    <group>
+                    <field name="manager"/>
+                   </group>
+               </group>
+           </sheet>
+         </form>
+      </field>
+  </record>
+       <!--Farm Management Tree View-->
+<record id="farm_management_view_tree" model="ir.ui.view">
+   <field name="name">farm.tree</field>
+   <field name="model">piece.land</field>
+   <field name="arch" type="xml">
+       <tree>
+            <field name="name"/>
+            <field name="size"/>
+            <field name="manager"/>
+       </tree>
+   </field>
+</record>
+       <!--Farm Management Action-->
+<record id="action_farm_management" model="ir.actions.act_window">
+   <field name="name">Land Management</field>
+   <field name="res_model">piece.land</field>
+   <field name="view_mode">tree,form</field>
+   <field name="help" type="html">
+       <p class="o_view_nocontent_smiling_face">
+           Add Piece Of Land
+       </p>
+   </field>
+</record>
+    <!--Parent Farm School Management-->
+    <menuitem id="farm_management_menu_root"
+         name="Farm Management"
+         sequence="7"/>
+    <!-- Parent configuration menu -->
+    <menuitem id="menu_configuration" name="Configurations" 
+    parent="farm_management_menu_root" sequence="13"/>
+    <menuitem id="menu_crops_config_form" name="Crops" parent="menu_configuration" />
+
+     <!--Menu Farm Management-->
+     <menuitem id="farm_management_menu"
+         name="Land Management"
+         parent="farm-management.farm_management_menu_root"
+         action="action_farm_management"
+         sequence="0"/>
+</odoo>

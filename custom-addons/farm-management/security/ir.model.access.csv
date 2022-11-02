@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_piece_land,access.piece.land,model_piece_land,,1,1,1,1
+access_land_block,access.land.block,model_land_block,,1,1,1,1
+access_block_season,access.block.season,model_block_season,,1,1,1,1
+access_crop_block,access.crop.block,model_crop_block,,1,1,1,1

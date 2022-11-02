@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+     <!--Farm Management Form View-->
+       <record id="block_management_view_form" model="ir.ui.view">
+        <field name="name">land.block.view.form</field>
+        <field name="model">land.block</field>
+        <field name="arch" type="xml">
+       <form string="School">
+           <sheet>
+               <group string="Block Management">
+                   <group>
+                    <field name="name"/>
+                    <field name="size"/>
+                   </group>
+                    <group>
+                    <field name="manager"/>
+                    <field name="land_id"/>
+                   </group>
+               </group>
+           </sheet>
+         </form>
+      </field>
+  </record>
+       <!--Farm Management Tree View-->
+<record id="block_management_view_tree" model="ir.ui.view">
+   <field name="name">farm.tree</field>
+   <field name="model">land.block</field>
+   <field name="arch" type="xml">
+       <tree>
+            <field name="name"/>
+            <field name="size"/>
+            <field name="manager"/>
+       </tree>
+   </field>
+</record>
+       <!--Farm Management Action-->
+<record id="action_block_management" model="ir.actions.act_window">
+   <field name="name">Blocks Management</field>
+   <field name="res_model">land.block</field>
+   <field name="view_mode">tree,form</field>
+   <field name="help" type="html">
+       <p class="o_view_nocontent_smiling_face">
+           Add A Block Of Land
+       </p>
+   </field>
+</record>
+     <!--Menu Block Management-->
+     <menuitem id="block_management_menu"
+         name="Block Management"
+         parent="farm-management.farm_management_menu_root"
+         action="action_block_management"
+         sequence="1"/>
+</odoo>
