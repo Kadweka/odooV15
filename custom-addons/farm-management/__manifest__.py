@@ -9,7 +9,6 @@
     'author': "@The-Kadweka & Kiro",
     'company': 'BroadSpace Interactive',
     'maintainer': 'BroadSpace Interactive',
-    # 'live_test_url': 'https://youtu.be/lAT5cqVZTZI',
     'website': "https://broadspaceinteractive.com/",
     'depends': [
         'base',
