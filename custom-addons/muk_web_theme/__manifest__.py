@@ -78,8 +78,3 @@
     'auto_install': False,
     'uninstall_hook': '_uninstall_reset_changes',
 }
-
-# <!-- https://github.com/Kadweka/odooV15.git
-# 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
-
-# git remote add origin https://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@github.com/Kadweka/odooV15 -->
