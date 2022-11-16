@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	 <!-- <template id="assets_backend" name="pos_laundry service assets" inherit_id="web.assets_backend">
+	     <xpath expr="." position="inside">
+             <link rel="stylesheet" href="/pos_laundry_service/static/src/css/radio_button.css"></link>
+					 <script type="text/javascript" src="/pos_laundry_service/static/src/js/WashingStageButton.js"></script>
+					 <script type="text/javascript" src="/pos_laundry_service/static/src/js/WashingStagePopupWidget.js"></script>
+					 <script type="text/javascript" src="/pos_laundry_service/static/src/js/washing_error_popup.js"></script>
+					 <script type="text/javascript" src="/pos_laundry_service/static/src/js/SelectClothPopupWidget.js"></script>
+					 <script type="text/javascript" src="/pos_laundry_service/static/src/js/SelectNullPopupWidget.js"></script>
+					 <script type="text/javascript" src="/pos_laundry_service/static/src/js/orderline.js"></script>
+					 <script type="text/javascript" src="/pos_laundry_service/static/src/js/addnotepopup.js"></script>
+					 <script type="text/javascript" src="/pos_laundry_service/static/src/js/ProductNotePopupWidget.js"></script>
+					 <script type="text/javascript" src="/pos_laundry_service/static/src/js/screen.js"></script>
+			 </xpath>
+	 </template> -->
+</odoo>

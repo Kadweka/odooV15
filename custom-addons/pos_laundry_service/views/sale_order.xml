@@ -1,0 +1,20 @@
+<!-- <?xml version="1.0" encoding="utf-8"?> -->
+<odoo>
+<!--        <record model="ir.ui.view" id="inheirted_ace_view_sale_order_form">-->
+<!--            <field name="name">laundry.order</field>-->
+<!--            <field name="model">laundry.order</field>-->
+<!--            <field name="inherit_id" ref="laundry.view_order_form"/>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <xpath expr="//field[@name='order_line']/tree/field[@name='price_unit']" position="before">-->
+<!--                    <field name="laundry_line_note"/>-->
+<!--                </xpath>-->
+<!--                <xpath expr="//notebook" position="inside">-->
+<!--                    <page string="Note">-->
+<!--                        <group>-->
+<!--                            <field name="laundry_note" string="Note"/>-->
+<!--                        </group>-->
+<!--                    </page>-->
+<!--                </xpath>-->
+<!--            </field>-->
+<!--        </record>-->
+</odoo>

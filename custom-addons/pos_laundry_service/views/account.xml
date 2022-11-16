@@ -1,0 +1,24 @@
+<!-- <?xml version="1.0" encoding="utf-8"?> -->
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="inheirted_ace_view_invoice_form">
+            <field name="name">account_move_view</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+            	<xpath expr="//field[@name='invoice_line_ids']/tree/field[@name='price_unit']" position="before">
+            		<field name="invoice_line_note"/>
+            	</xpath>
+					
+				<page name="other_info" position="after">
+					<page string="Note">
+						<group><group>
+						<field name="invoice_note" string="Note"/>
+						</group></group>
+					</page>
+				</page>
+            </field>
+        </record>
+    </data>
+</odoo>

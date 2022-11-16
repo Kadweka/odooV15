@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="AddNoteButton" owl="1">
+        <span class="control-button" t-on-click="button_click">
+            <i class="fa fa-sticky-note"/>
+            Add Note
+        </span>
+    </t>
+
+    <t t-name="ProductNotePopupWidget" owl="1">
+        <div class="modal-dialog">
+            <div class="popup popup-textinput">
+                <p class="title">Add Product Note</p>
+                <textarea id="textarea_note" rows="7" cols="30"/>
+                <div class="footer">
+                    <div class="button confirm" t-on-click="note_done">
+                        Done
+                    </div>
+                    <div class="button cancel" t-on-click="go_back_screen" >
+                        Cancel
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="WashingStageButton" owl="1">
+        <span class="control-button">
+            Service Type
+        </span>
+    </t>
+
+    <t t-name="IsUrgent" owl="1">
+        <span class="control-button">
+            Is Urgent
+        </span>
+    </t>
+
+
+    <t t-name="WashingStagePopupWidget" owl="1">
+        <div class="modal-dialog">
+            <div class="popup">
+                <p class="title">Select Service<br/>
+                	<i style="font-size:12px;color:red;">
+                	(Amount specified in bracket will be applied to product)
+                	</i>
+               	</p>
+                <t t-if="props.washing">
+                  <div class="container" align="left">
+                    <form>
+                    <div t-foreach="props.washing" t-as="data">
+                      <div class="radio" style="padding:20px;">
+                        <label>
+                          <input style="box-shadow:unset; width:5%;margin-top: -9px;float:left;" class="form-control" type="radio" name="washing_type"  t-attf-data-id="{{data.id}}" t-attf-id="{{data.id}}" t-attf-data-amount="{{data.amount}}" t-attf-value="{{data.name}}" />
+                          <t t-esc="data.name"/> (<t t-esc="env.pos.format_currency(data.amount)"/>)
+                        </label>
+                      </div>
+                    </div>
+                    </form>
+                  </div>
+                </t>
+                <div class="footer">
+                    <div class="button confirm" t-on-click="click_confirm">
+                        ADD
+                    </div>
+                    <div class="button cancel" t-on-click="go_back_screen">
+                        Cancel
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="SelectClothPopupWidget" owl="1">
+        <div class="modal-dialog">
+            <div class="popup">
+                    <div class="title">WARNING!</div>
+                    <div class="col-md-6" style="margin-top:112px;">
+                    Please Select the product!
+                    </div>
+                    <div class="footer">
+                        <div class="button confirm" t-on-click="go_back_screen">
+                            OK
+                        </div>
+                        <div class="button cancel" t-on-click="go_back_screen">
+                            Cancel
+                        </div>
+                    </div>
+
+            </div>
+        </div>
+    </t>
+
+    <t t-name="SelectNullPopupWidget" owl="1">
+        <div class="modal-dialog">
+            <div class="popup">
+                    <div class="title">WARNING!</div>
+                    <div class="col-md-6" style="margin-top:100px;">
+                    You have not selected the product <br/>
+                    Or <br/>
+                    The amount is zero.
+                    </div>
+                    <div class="footer">
+                        <div class="button confirm" t-on-click="go_back_screen">
+                            OK
+                        </div>
+                        <div class="button cancel" t-on-click="go_back_screen">
+                            Cancel
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </t>
+
+    <t t-name="WashingErrorPopupWidget" owl="1">
+        <div class="modal-dialog">
+            <div class="popup">
+                    <div class="title">
+                    WARNING!
+                    </div>
+                    <div class="col-md-6" style="margin-top:112px;">
+                    Washing service cannot be added to this product!
+                    </div>
+                    <div class="footer">
+                        <div class="button confirm" t-on-click="go_back_screen">
+                            OK
+                        </div>
+                        <div class="button cancel" t-on-click="go_back_screen">
+                            Cancel
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </t>
+
+    <t t-inherit="point_of_sale.Orderline" t-inherit-mode="extension">
+        <xpath expr="//li[1]" position="inside">
+            <t t-if="props.line.get_line_note()">
+                <li class="info">
+                        <i class="fa fa-sticky-note" aria-hidden="true"/> Note Added...
+                </li>
+            </t>
+            <t t-if="props.line.get_washing_stage()">
+                <li class="info" style="padding:1px;">
+                    <span class="badge" style="background-color:lightskyblue;border-radius:25px;padding:3px;">
+                        <t t-esc="props.line.get_washing_stage()"/>
+                    </span>
+                </li>
+            </t>
+        </xpath>
+        <xpath expr="//span[hasclass('price')]" position="replace">
+                <span t-esc="env.pos.format_currency(props.line.get_display_price())"/>
+        </xpath>
+    </t>
+
+    <t t-inherit="point_of_sale.PaymentScreen" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('paymentmethods-container')]" position="before">
+            <t t-if="env.pos.config and env.pos.config.enable_order_note">
+                <div style="text-align: center;margin-top: 15px;">
+	                <span>
+	                    <textarea class="form-control" rows="5" id="order_note" placeholder="Order Notes Here"/>
+	                </span>
+	            </div>
+            </t>
+        </xpath>
+    </t>
+
+    <t t-inherit="point_of_sale.ClientDetailsEdit" t-inherit-mode="extension">
+      <xpath expr="//div[hasclass('client-details-right')]" position="inside">
+
+            <div class='client-detail'>
+                <span class='label'>Gender</span>
+                <select class='detail client-gender needsclick' name='gender' t-on-change="captureChange">
+                    <option value=''>  Select  </option>
+                    <t t-if="props.partner.gender == 'male'">
+                        <option value='male' selected='True'>Male</option>
+                    </t>
+                    <t t-else="props.partner.gender != 'male'">
+                        <option value='male'>Male</option>
+                    </t>
+                    <t t-if="props.partner.gender == 'female'">
+                        <option value='female' selected='True'>Female</option>
+                    </t>
+                    <t t-else="props.partner.gender != 'female'">
+                        <option value='female'>Female</option>
+                    </t>
+                </select>
+            </div>
+        </xpath>
+    </t>
+
+	<t t-inherit="point_of_sale.OrderReceipt" t-inherit-mode="extension">
+		 <xpath expr="//div[hasclass('pos-receipt')]" position="inside">
+       <t t-if="receipt.order_note">
+
+         <div class="pos-receipt-order-data" style="text-align: left;">
+
+           Order Note:
+           <span t-esc="receipt.order_note"/>
+
+         </div>
+       </t>
+		</xpath>
+	</t>
+
+    <t t-inherit="point_of_sale.WrappedProductNameLines" t-inherit-mode="extension">
+        <xpath expr="//span" position="after">
+            <t t-if="props.line.line_note">
+                <div class="pos-receipt-order-data" style="text-align: left;">
+                    Product Note:
+                    <span t-esc="props.line.line_note"/>
+                </div>
+            </t>
+        </xpath>
+    </t>
+
+</templates>
