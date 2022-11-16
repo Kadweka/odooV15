@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+multi_currency_partner_ledger_app.access_multicurrency_partnerledger,access_multicurrency_partnerledger,multi_currency_partner_ledger_app.model_multicurrency_partnerledger,base.group_user,1,1,1,1
+
+
+
+

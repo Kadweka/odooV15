@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data noupdate="0">
+        <record id="washing_stages_1" model="washing.stage">
+            <field name="name">Wash Only</field>
+            <field name="sequence">1</field>
+            <field name="active">True</field>
+            <field name="amount">10.00</field>
+        </record>
+        <record id="washing_stages_2" model="washing.stage">
+            <field name="name">Iron Only</field>
+            <field name="sequence">2</field>
+            <field name="active">True</field>
+            <field name="amount">15.00</field>
+        </record>
+        <record id="washing_stages_3" model="washing.stage">
+            <field name="name">Wash and Iron Both</field>
+            <field name="sequence">3</field>
+            <field name="active">True</field>
+            <field name="amount">30.00</field>
+        </record>
+<!--        <record id="express" model="washing.stage">-->
+<!--            <field name="name">Express</field>-->
+<!--            <field name="sequence">4</field>-->
+<!--            <field name="active">True</field>-->
+<!--            <field name="amount">100.00</field>-->
+<!--        </record>-->
+<!--        <record id="washing_stages_plus_express" model="washing.stage">-->
+<!--            <field name="name">Wash and Iron + Express </field>-->
+<!--            <field name="sequence">4</field>-->
+<!--            <field name="active">True</field>-->
+<!--            <field name="amount">150.00</field>-->
+<!--        </record>-->
+    </data>
+</odoo>

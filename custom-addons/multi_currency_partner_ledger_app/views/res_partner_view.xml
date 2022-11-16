@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_res_partner_customer_supplier_view" model="ir.ui.view">
+            <field name="name">res.partner.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+            <xpath expr="//page[2]//field[@name='user_id']" position="before">
+				<field name="customer"/>
+			</xpath>
+			<xpath expr="//page[2]//field[@name='property_supplier_payment_term_id']" position="before">
+				<field name="supplier"/>
+			</xpath>
+			
+            </field>
+        </record>
+</odoo>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_invoice_document_inherit1" inherit_id="account.report_invoice_document">
+            <xpath expr="//table[@name='invoice_line_table']/thead/tr/th[1]" position="after">
+                <th class="text-left">Comment</th>
+            </xpath>
+            <xpath expr="//table[@name='invoice_line_table']/tbody[hasclass('invoice_tbody')]/t[@t-foreach='lines']/tr/t[1]/td[@name='account_invoice_line_name']" position="after">
+                <td class="text-left">
+                    <span t-field="line.invoice_line_note"/>
+                </td>
+            </xpath>
+            <!-- <xpath expr="//p[@t-if='o.narration']" position="after">
+                <p t-if="o.invoice_note">
+                    <strong>Notes:</strong>
+                    <span t-field="o.invoice_note"/>
+                </p>
+            </xpath> -->
+        </template>
+    </data>
+</odoo>
