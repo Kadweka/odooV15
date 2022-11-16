@@ -151,8 +151,7 @@ class LaundryManagementLine(models.Model):
     product_id = fields.Many2one('product.product', string='Dress', required=1)
     qty = fields.Integer(string='No of items', required=1)
     description = fields.Text(string='Description')
-    washing_type = fields.Many2one('washing.type', string='Washing Type',
-                                   required=1)
+    washing_type = fields.Many2one('washing.type', string='Washing Type')
     extra_work = fields.Many2many('washing.work', string='Extra Work')
     amount = fields.Float(compute='get_amount', string='Amount')
     laundry_obj = fields.Many2one('laundry.order', invisible=1)
