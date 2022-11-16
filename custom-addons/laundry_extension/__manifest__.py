@@ -7,7 +7,7 @@
     'author': '@The-Kadweka',
     'website': 'Website',
     # 'license': 'License',
-    'depends': ['laundry_management','account'],
+    'depends': ['laundry_management','account','point_of_sale'],
     'data': [],
     'demo': [],
     'installable': True,
